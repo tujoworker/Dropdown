@@ -32,7 +32,6 @@
 
 .th-dropdown input[type='checkbox']:disabled ~ button:first-of-type {
   opacity: 0.4;
-  cursor: default;
   outline: none;
 }
 
@@ -72,7 +71,7 @@ input[type='checkbox']:not(:disabled):checked
   opacity: 0;
 }
 
-.th-dropdown input[type='checkbox']:not(:checked):hover {
+.th-dropdown input[type='checkbox']:not(:disabled):not(:checked):hover {
   cursor: pointer;
 }
 
