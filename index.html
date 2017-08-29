@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Dropdown Component Demo</title>
+    <link rel="stylesheet" type="text/css" href="./dropdown.css">
+</head>
+
+<body>
+
+<span>A nice text before</span>
+<button>Other Button</button>
+
+<span class="my-component th-dropdown">
+    <!-- If needed, define the default value by setting someting in the value attribute like "value="option-1"" -->
+    <input hidden aria-label="Option Menu" type="checkbox" value="option-1" />
+
+    <!-- Your custom content -->
+    <button hidden tabindex="-1"><span class="th-circle green"></span>Option 1</button>
+
+    <!-- Your custom content. It is possible to wrap the ul element in an label elemnt, then the menu gets unselected also without js -->
+    <ul>
+      <li data-value="option-1"><span class="th-circle green"></span>Option 1</li>
+      <li data-value="option-2"><span class="th-circle blue"></span>Option 2</li>
+      <li data-value="option-3"><span class="th-circle orange"></span>Option 3</li>
+      <li data-value="option-4"><span class="th-circle red"></span>Option 4</li>
+      <li class="th-separator"></li>
+      <li data-value="option-5"><span class="th-circle black"></span>Option 5</li>
+    </ul>
+
+</span>
+
+<!-- This is a stripped down version on the HTML side, but need JS to build it up again -->
+<span class="my-component-2 th-dropdown">
+    <!-- If needed, define the default value by setting someting in the value attribute like "value="option-1"" -->
+    <input value="option-3" />
+
+    <!-- Your custom content. It is possible to wrap the ul element in an label elemnt, then the menu gets unselected also without js -->
+    <ul>
+      <li data-value="option-1"><span class="th-circle green"></span>Option 1</li>
+      <li data-value="option-2"><span class="th-circle blue"></span>Option 2</li>
+      <li data-value="option-3"><span class="th-circle orange"></span>Option 3</li>
+      <li data-value="option-4"><span class="th-circle red"></span>Option 4</li>
+      <li class="th-separator"></li>
+      <li data-value="option-5"><span class="th-circle black"></span>Option 5</li>
+    </ul>
+
+</span>
+
+<!-- This is a stripped down version on the HTML side, but need JS to build it up again -->
+<span class="my-disabled-component th-dropdown">
+    <!-- If needed, define the default value by setting someting in the value attribute like "value="option-1"" -->
+    <input disabled value="option-4" />
+
+    <!-- Your custom content. It is possible to wrap the ul element in an label elemnt, then the menu gets unselected also without js -->
+    <ul>
+      <li data-value="option-1"><span class="th-circle green"></span>Option 1</li>
+      <li data-value="option-2"><span class="th-circle blue"></span>Option 2</li>
+      <li data-value="option-3"><span class="th-circle orange"></span>Option 3</li>
+      <li data-value="option-4"><span class="th-circle red"></span>Option 4</li>
+      <li class="th-separator"></li>
+      <li data-value="option-5"><span class="th-circle black"></span>Option 5</li>
+    </ul>
+
+</span>
+
+<button>Third focus</button>
+<span>and some text after.</span>
+
+<script src="./dropdown.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(event) {
+    var MyComponent = new THDropdown('span.my-component');
+    console.log('getValue:', MyComponent.getValue());
+    // console.log('getContent:', MyComponent.getContent());
+    MyComponent.onOptionChange(function(value, content) {
+        console.log('onOptionChange', value, content);
+    });
+
+    var MySecondComponent = new THDropdown('span.my-component-2');
+    console.log('getValue:', MySecondComponent.getValue());
+    // console.log('getContent:', MySecondComponent.getContent());
+    MySecondComponent.onOptionChange(function(value, content) {
+        console.log('onOptionChange', value, content);
+    });
+
+    var MyDisabledComponent = new THDropdown('span.my-disabled-component');
+});
+</script>
+
+
+</body>
+
+</html>
