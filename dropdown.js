@@ -11,6 +11,11 @@ var THDropdown = (function(document) {
     function DD(selectorName) {
         this._callbacks = [];
 
+        this.renderHTML(selectorName);
+        this.addListeners();
+    }
+
+    DD.prototype.renderHTML = function(selectorName) {
         this.rootEl = document.querySelectorAll(selectorName)[0];
 
         this.inputEl = this.rootEl.querySelectorAll('input:first-of-type')[0];
@@ -72,9 +77,7 @@ var THDropdown = (function(document) {
                 // )
             }
         } catch (e) {}
-
-        this.addListeners();
-    }
+    };
 
     DD.prototype.getValue = function() {
         return this.value;
@@ -91,7 +94,6 @@ var THDropdown = (function(document) {
         this.inputEl.checked = false;
         this.buttonEl.innerHTML = newContent;
         this.value = newValue;
-
 
         console.log('newValue', newValue);
 
