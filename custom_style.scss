@@ -1,0 +1,27 @@
+.th-dropdown .th-circle {
+    display: inline-block;
+    vertical-align: middle;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0 8px 0 0;
+}
+.th-dropdown li .th-circle {
+    margin: 0 12px 0 0;
+}
+
+.th-dropdown .th-circle.green {
+    background-color: green;
+}
+.th-dropdown .th-circle.blue {
+    background-color: blue;
+}
+.th-dropdown .th-circle.orange {
+    background-color: orange;
+}
+.th-dropdown .th-circle.red {
+    background-color: red;
+}
+.th-dropdown .th-circle.black {
+    background-color: black;
+}

@@ -4,6 +4,7 @@
 An independent HTML Dropdown component.
 
 This component does not require JavaScript to show off, but once the end user has to select a value, JavaScript is required.
+
 ![alt text](./screen_shot.png "Logo Title Text 1")
 
 ## How to include it?
