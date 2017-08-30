@@ -14,7 +14,7 @@
 <body>
 
 <span>A nice text before</span>
-<button>Other Button</button>
+<button>First focus Button</button>
 
 <span class="my-component th-dropdown">
     <!-- If needed, define the default value by setting someting in the value attribute like "value="option-1"" -->
@@ -29,7 +29,7 @@
       <li data-value="option-2"><span class="th-circle blue"></span>Option 2</li>
       <li data-value="option-3"><span class="th-circle orange"></span>Option 3</li>
       <li data-value="option-4"><span class="th-circle red"></span>Option 4</li>
-      <li class="th-separator"></li>
+      <li class="th-dropdown-separator"></li>
       <li data-value="option-5"><span class="th-circle black"></span>Option 5</li>
     </ul>
 
@@ -46,49 +46,51 @@
       <li data-value="option-2"><span class="th-circle blue"></span>Option 2</li>
       <li data-value="option-3"><span class="th-circle orange"></span>Option 3</li>
       <li data-value="option-4"><span class="th-circle red"></span>Option 4</li>
-      <li class="th-separator"></li>
+      <li class="th-dropdown-separator"></li>
       <li data-value="option-5"><span class="th-circle black"></span>Option 5</li>
     </ul>
 
 </span>
 
-<!-- This is a stripped down version on the HTML side, but need JS to build it up again -->
+<!-- This component is disabled -->
 <span class="my-disabled-component th-dropdown">
-    <!-- If needed, define the default value by setting someting in the value attribute like "value="option-1"" -->
     <input disabled value="option-4" />
 
-    <!-- Your custom content. It is possible to wrap the ul element in an label elemnt, then the menu gets unselected also without js -->
     <ul>
       <li data-value="option-1"><span class="th-circle green"></span>Option 1</li>
       <li data-value="option-2"><span class="th-circle blue"></span>Option 2</li>
       <li data-value="option-3"><span class="th-circle orange"></span>Option 3</li>
       <li data-value="option-4"><span class="th-circle red"></span>Option 4</li>
-      <li class="th-separator"></li>
+      <li class="th-dropdown-separator"></li>
       <li data-value="option-5"><span class="th-circle black"></span>Option 5</li>
     </ul>
 
 </span>
 
-<button>Third focus</button>
+<button>Other focus Button</button>
 <span>and some text after.</span>
 
 <script src="./component/dropdown.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function(event) {
+
+    //here we bind the js to the component UX we have as HTML
     var MyComponent = new THDropdown('span.my-component');
-    console.log('getValue:', MyComponent.getValue());
-    // console.log('getContent:', MyComponent.getContent());
     MyComponent.onOptionChange(function(value, content) {
         console.log('onOptionChange', value, content);
     });
 
+    console.log('getValue:', MyComponent.getValue());
+    // console.log('getContent:', MyComponent.getContent());
+
+
+    //second component
     var MySecondComponent = new THDropdown('span.my-component-2');
-    console.log('getValue:', MySecondComponent.getValue());
-    // console.log('getContent:', MySecondComponent.getContent());
     MySecondComponent.onOptionChange(function(value, content) {
         console.log('onOptionChange', value, content);
     });
 
+    //third component
     var MyDisabledComponent = new THDropdown('span.my-disabled-component');
 });
 </script>

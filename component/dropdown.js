@@ -24,7 +24,7 @@ var THDropdown = (function(document) {
         this.labelEl = this.rootEl.querySelectorAll('label:first-of-type')[0];
         this.ulEl = this.rootEl.querySelectorAll('ul:first-of-type')[0];
         this.listEls = this.rootEl.querySelectorAll(
-            'ul:first-of-type li:not(.th-separator)'
+            'ul:first-of-type li:not(.th-dropdown-separator)'
         );
 
         this.value = this.inputEl.getAttribute('value');
@@ -73,7 +73,7 @@ var THDropdown = (function(document) {
                     this.buttonEl.innerHTML = this.listEls[0].innerHTML;
                 }
                 // this.listEls = this.rootEl.querySelectorAll(
-                //     'ul:first-of-type li:not(.th-separator)'
+                //     'ul:first-of-type li:not(.th-dropdown-separator)'
                 // )
             }
         } catch (e) {}
@@ -188,7 +188,7 @@ var THDropdown = (function(document) {
                     } else {
                         root.setValue(
                             root.rootEl.querySelectorAll(
-                                'li:not(.th-separator).selected'
+                                'li:not(.th-dropdown-separator).selected'
                             )[0]
                         );
                         // root.inputEl.blur();//better solution to keep the focus, and only change checked
@@ -233,7 +233,7 @@ var THDropdown = (function(document) {
             inputEl.removeEventListener('focus', this.focusListener, false);
             inputEl.removeEventListener('blur', this.blurListener, false);
             inputEl.removeEventListener('keydown', this.keydownListener);
-            // rootEl.querySelectorAll('li:not(.th-separator)').forEeach(function() {});
+            // rootEl.querySelectorAll('li:not(.th-dropdown-separator)').forEeach(function() {});
 
             for (var i = 0, l = listEls.length; i < l; ++i) {
                 listEls[i].removeEventListener('mousedown', this.listListener);

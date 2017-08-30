@@ -136,7 +136,7 @@ ul:first-of-type {
   color: black;
 }
 
-.th-dropdown ul:first-of-type .th-separator {
+.th-dropdown ul:first-of-type .th-dropdown-separator {
   overflow: hidden;
   height: 1px;
   margin: 6px 0;
